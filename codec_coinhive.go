@@ -100,6 +100,12 @@ func (c *CoinhiveServerCodec) ReadRequestBody(x interface{}) error {
 
 // WriteResponse implements rpc.ServerCodec
 func (c *CoinhiveServerCodec) WriteResponse(r *rpc.Response, x interface{}) error {
+	// such silly business this
+	if c.req.Method == "submit" {
+		c.req.Method = "hash_accepted"
+	} else if c.req.Method == "auth" {
+		c.req.Method = "authed"
+	}
 	resp := chServerResponse{Method: c.req.Method}
 	if r.Error == "" {
 		if x == nil {
