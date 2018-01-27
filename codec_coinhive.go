@@ -118,7 +118,7 @@ func (c *CoinhiveServerCodec) WriteResponse(r *rpc.Response, x interface{}) erro
 		resp.Error = &raw
 	}
 
-	// still not sure mutex is necessary
+	// mutex should not be necessary - io.Writer is meant to be threadsafe
 	// c.encmutex.Lock()
 	// defer c.encmutex.Unlock()
 	return c.enc.Encode(resp)
