@@ -8,6 +8,10 @@ A collection of client and server RPC codecs for interacting with Monero miners 
 
 ## Usage
 
+[![GoDoc](https://godoc.org/github.com/trey-jones/stratum?status.svg)](https://godoc.org/github.com/trey-jones/stratum)
+
+[Check out the full documentation on godoc](https://godoc.org/github.com/trey-jones/stratum)
+
 There are some differences between JSON RPC 2.0 and (typical?) Monero mining communication. Each end of the connection has some features of a client **and** a server.
 
 `Client` embeds a `rpc.Client` and `Server` embeds `rpc.Server`.  Learn more about their capabilities from the [official documentation.](https://golang.org/pkg/net/rpc)
